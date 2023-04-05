@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Multi-Label Image Classification Prediction Results</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+  </head>
+  <body>
+    <h1>PREDICTION RESULTS</h1><br><br>
+    <img src="data:image/jpeg;base64,{{ img_str }}" alt="input image" /><br><br>
+    <table>
+      <thead>
+        <tr>
+          <th>Label</th>
+          <th>Probability (%)</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for label, prob in sorted_labels if prob > 1 %}
+          <tr>
+            <td>{{ label }}</td>
+            <td>{{ prob }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+   
+  </body>
+</html>
